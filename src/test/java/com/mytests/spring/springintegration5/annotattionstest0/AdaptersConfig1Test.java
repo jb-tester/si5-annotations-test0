@@ -34,6 +34,6 @@ public class AdaptersConfig1Test {
         Assert.assertNotNull(adapter11);
         Assert.assertNotNull(messageSource11);
         System.out.println(adapter11.getComponentName());
-        System.out.println(messageSource11.toString());
+        System.out.println(messageSource11.receive());
     }
 }

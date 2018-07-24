@@ -12,8 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.function.Supplier;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = AdaptersConfig.class)
-public class AdaptersConfigTest {
+@ContextConfiguration(classes = AdaptersConfig0.class)
+public class AdaptersConfig0Test {
 
 
 	@Autowired

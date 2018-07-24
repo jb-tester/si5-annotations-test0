@@ -8,11 +8,11 @@ import java.util.function.Supplier;
 
 @MessageEndpoint
 public class MyAdapter1Component {
-    @InboundChannelAdapter(value = "channel11", poller = @Poller(fixedRate = "1000"))
-    public Supplier<?> myadapter1() {
-        return () -> {
+    @InboundChannelAdapter(value = "ica1channel", poller = @Poller(fixedRate = "1000"))
+    public String myadapter1() {
+
             return "boo";
-        };
+
 
     }
 }

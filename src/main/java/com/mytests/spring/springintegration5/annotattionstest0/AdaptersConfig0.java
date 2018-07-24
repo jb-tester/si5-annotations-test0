@@ -17,20 +17,17 @@ import java.util.function.Supplier;
 
 @Configuration
 @EnableIntegration
-public class AdaptersConfig {
+public class AdaptersConfig0 {
 
     @Bean
-    public PollableChannel channel1(){
+    public PollableChannel ica0channel(){
         return new QueueChannel();
     }
 
-    @Bean
-    public PublishSubscribeChannel channel2(){
-        return new PublishSubscribeChannel();
-    }
+
 
     @Bean
-    public DirectChannel channel3(){
+    public DirectChannel pollerErrorChannel(){
         return new DirectChannel();
     }
 
@@ -44,7 +41,7 @@ public class AdaptersConfig {
 
     @Bean("myadapter.source")
     @EndpointId("myadapter")
-    @InboundChannelAdapter(value = "channel1", poller = @Poller(value = "myPoller", errorChannel = "channel3"))
+    @InboundChannelAdapter(value = "ica0channel", poller = @Poller(value = "myPoller", errorChannel = "pollerErrorChannel"))
     public Supplier<String> pojoSupplier() {
         return () -> {
             return "foo";

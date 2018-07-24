@@ -19,7 +19,7 @@ public class AdaptersConfig1 {
 
 
     @Bean
-    public PollableChannel channel11(){
+    public PollableChannel ica1channel(){
         return new QueueChannel();
     }
 

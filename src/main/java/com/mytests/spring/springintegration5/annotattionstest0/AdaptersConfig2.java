@@ -22,14 +22,14 @@ public class AdaptersConfig2 {
 
 
     @Bean
-    public PollableChannel channel0(){
+    public PollableChannel ica2channel(){
         return new QueueChannel();
     }
 
 
 
     @Bean
-    @InboundChannelAdapter(value = "channel0", poller = @Poller(fixedRate = "1000"))
+    @InboundChannelAdapter(value = "ica2channel", poller = @Poller(fixedRate = "1000"))
     public Supplier<String> myadapter2() {
         return () -> {
             return "bar";
