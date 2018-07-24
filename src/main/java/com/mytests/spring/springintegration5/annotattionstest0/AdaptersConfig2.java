@@ -17,38 +17,22 @@ import java.util.function.Supplier;
 
 @Configuration
 @EnableIntegration
-public class AdaptersConfig {
+public class AdaptersConfig2 {
+
+
 
     @Bean
-    public PollableChannel channel1(){
+    public PollableChannel channel0(){
         return new QueueChannel();
     }
 
-    @Bean
-    public PublishSubscribeChannel channel2(){
-        return new PublishSubscribeChannel();
-    }
+
 
     @Bean
-    public DirectChannel channel3(){
-        return new DirectChannel();
-    }
-
-    @Bean
-    public PollerMetadata myPoller() {
-        PollerMetadata pollerMetadata = new PollerMetadata();
-        pollerMetadata.setTrigger(new PeriodicTrigger(1000));
-        return pollerMetadata;
-    }
-
-
-    @Bean("myadapter.source")
-    @EndpointId("myadapter")
-    @InboundChannelAdapter(value = "channel1", poller = @Poller(value = "myPoller", errorChannel = "channel3"))
-    public Supplier<String> pojoSupplier() {
+    @InboundChannelAdapter(value = "channel0", poller = @Poller(fixedRate = "1000"))
+    public Supplier<String> myadapter2() {
         return () -> {
-            return "foo";
+            return "bar";
         };
     }
-
 }
