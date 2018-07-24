@@ -16,17 +16,19 @@ public class RunSATest {
         Message mess = out.receive(100);
         System.out.println(mess);
 
+        PollableChannel in1 = ctx.getBean("channel21", PollableChannel.class);
+        in1.send(new GenericMessage<String>("hello"));
+        PollableChannel out1 = ctx.getBean("channel11", PollableChannel.class );
+        Message mess1 = out1.receive(100);
+        System.out.println(mess1);
+
         PollableChannel in2 = ctx.getBean("channel22", PollableChannel.class);
         in2.send(new GenericMessage<String>("hello"));
         PollableChannel out2 = ctx.getBean("channel12", PollableChannel.class );
         Message mess2 = out2.receive(100);
         System.out.println(mess2);
 
-        System.out.println("_________________________");
 
-        for (String beanDefinitionName : ctx.getBeanDefinitionNames()) {
-            System.out.println(beanDefinitionName);
-        }
         ((AnnotationConfigApplicationContext) ctx).close();
     }
 }
