@@ -1,6 +1,7 @@
 package com.mytests.spring.springintegration5.annotattionstest0;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.EndpointId;
 import org.springframework.integration.annotation.InboundChannelAdapter;
@@ -20,6 +21,7 @@ import java.util.function.Supplier;
 
 @Configuration
 @EnableIntegration
+@ComponentScan("com.mytests.spring.springintegration5.annotattionstest0.components")
 public class ServiceActivatorsConfig {
 
     @Bean
@@ -29,6 +31,24 @@ public class ServiceActivatorsConfig {
 
     @Bean
     public PollableChannel channel2(){
+        return new QueueChannel();
+    }
+    @Bean
+    public PollableChannel channel11(){
+        return new QueueChannel();
+    }
+
+    @Bean
+    public PollableChannel channel21(){
+        return new QueueChannel();
+    }
+    @Bean
+    public PollableChannel channel12(){
+        return new QueueChannel();
+    }
+
+    @Bean
+    public PollableChannel channel22(){
         return new QueueChannel();
     }
 
@@ -55,11 +75,11 @@ public class ServiceActivatorsConfig {
     }
 
     @Bean
-    @ServiceActivator( inputChannel = "channel2")
+    @ServiceActivator( inputChannel = "channel21")
     public MessageHandler sa2(){
 
         MessageHandler handler = new ServiceActivatingHandler(service1(),"servicemethod2");
-        ((ServiceActivatingHandler) handler).setOutputChannel(channel1());
+        ((ServiceActivatingHandler) handler).setOutputChannel(channel11());
         return handler;
     }
 
