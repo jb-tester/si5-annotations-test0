@@ -5,4 +5,7 @@ public class MyService1 {
     public String servicemethod(String arg){
         return "..."+arg+"...";
     }
+    public String servicemethod2(String arg){
+        return "---"+arg+"---";
+    }
 }

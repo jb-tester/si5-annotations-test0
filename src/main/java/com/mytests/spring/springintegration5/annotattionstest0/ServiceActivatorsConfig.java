@@ -55,6 +55,16 @@ public class ServiceActivatorsConfig {
     }
 
     @Bean
+    @ServiceActivator( inputChannel = "channel2")
+    public MessageHandler sa2(){
+
+        MessageHandler handler = new ServiceActivatingHandler(service1(),"servicemethod2");
+        ((ServiceActivatingHandler) handler).setOutputChannel(channel1());
+        return handler;
+    }
+
+
+    @Bean
     MyService1 service1(){
         return new MyService1();
     }

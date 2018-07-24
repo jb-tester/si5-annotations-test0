@@ -28,6 +28,14 @@ public class ServiceActivatorsConfigTest {
 	@Qualifier("helloService.handler")
 	private MessageHandler eipBeanHandler;
 
+    @Autowired
+    @Qualifier("serviceActivatorsConfig.sa2.serviceActivator")
+    private PollingConsumer sa2 ;
+
+    @Autowired
+    @Qualifier("sa2")
+    private MessageHandler sa2Handler;
+
     @Test
     public void name() {
 
