@@ -19,12 +19,12 @@ public class AdaptersConfig1Test {
 
 
     @Autowired
-    @Qualifier("myAdapter11.myadapter11.inboundChannelAdapter")
+    @Qualifier("myAdapter1Component.myadapter1.inboundChannelAdapter")
     private SourcePollingChannelAdapter adapter11;
 
 
     @Autowired
-    @Qualifier("myAdapter11.myadapter11.inboundChannelAdapter.source")
+    @Qualifier("myAdapter1Component.myadapter1.inboundChannelAdapter.source")
     private MessageSource messageSource11;
 
 
