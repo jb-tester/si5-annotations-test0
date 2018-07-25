@@ -16,9 +16,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @ContextConfiguration(locations = "classpath*:xml-config.xml")
 public class XMLEndpointsTest {
 
+    // Tests implicit bean names for beans configured in xml
+
     @Autowired
     ApplicationContext ctx;
 
+    //service-activator:
 	@Autowired
     @Qualifier("sa_xml")
 	private EventDrivenConsumer sa4 ;
@@ -27,7 +30,7 @@ public class XMLEndpointsTest {
 	@Qualifier("sa_xml.handler")
 	private MessageHandler sa4Handler;
 
-
+    // inbound-channel-adapter:
     @Autowired
     @Qualifier("ica_xml")
     private SourcePollingChannelAdapter ica4;

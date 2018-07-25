@@ -15,15 +15,15 @@ import java.util.function.Supplier;
 @ContextConfiguration(classes = AdaptersConfig2.class)
 public class AdaptersConfig2Test {
 
-
+// Test implicit bean names for ica configured as @InboundChannelAdapter-annotated @Bean methods:
 
     @Autowired
-    @Qualifier("adaptersConfig2.myadapter2.inboundChannelAdapter")
+    @Qualifier("adaptersConfig2.myadapter2.inboundChannelAdapter") // should navigate to com.mytests.spring.springintegration5.annotattionstest0.AdaptersConfig2.myadapter2 method
     private SourcePollingChannelAdapter adapter2;
 
 
     @Autowired
-    @Qualifier("myadapter2")
+    @Qualifier("myadapter2") // navigates to com.mytests.spring.springintegration5.annotattionstest0.AdaptersConfig2.myadapter2 method (ok)
     private Supplier<?> messageSource2;
 
 

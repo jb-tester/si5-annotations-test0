@@ -16,9 +16,11 @@ import static org.junit.Assert.*;
 @ContextConfiguration(classes = ServiceActivatorsConfig.class)
 public class ServiceActivatorsConfigTest {
 
-@Autowired
+    // Test bean names for endpoints configured using annotations:
+    @Autowired
     ApplicationContext ctx;
 
+    // @EndpointId test:
 	@Autowired
     @Qualifier("helloService")
 	private PollingConsumer helloService ;
@@ -27,6 +29,7 @@ public class ServiceActivatorsConfigTest {
 	@Qualifier("helloService.handler")
 	private MessageHandler helloHandler;
 
+	// @ServiceActivator-annotated @Bean method:
     @Autowired
     @Qualifier("serviceActivatorsConfig.sa2.serviceActivator")
     private PollingConsumer sa2 ;
@@ -35,6 +38,7 @@ public class ServiceActivatorsConfigTest {
     @Qualifier("sa2")
     private MessageHandler sa2Handler;
 
+    //@ServiceActivator-annotated method in component:
     @Autowired
     @Qualifier("serviceActivator3.servicemethod3.serviceActivator")
     private PollingConsumer sa3 ;

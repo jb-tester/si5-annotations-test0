@@ -14,10 +14,10 @@ import java.util.function.Supplier;
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = AdaptersConfig0.class)
 public class AdaptersConfig0Test {
-
+ // Test @EndpointId annotation for ica
 
 	@Autowired
-    @Qualifier("myadapter")
+    @Qualifier("myadapter")   // should navigate to com.mytests.spring.springintegration5.annotattionstest0.AdaptersConfig0.pojoSupplier (@EndpointId("myadapter") annotation)
 	private SourcePollingChannelAdapter adapter;
 
 
