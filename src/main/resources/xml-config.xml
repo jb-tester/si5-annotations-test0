@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:integration="http://www.springframework.org/schema/integration"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
+<integration:service-activator id="sa_xml" expression="'==='+payload+'==='" input-channel="in" output-channel="out"/>
+
+<integration:channel id="out">
+    <integration:queue/>
+</integration:channel>
+    <integration:channel id="ica_channel">
+        <integration:queue/>
+    </integration:channel>
+
+    <integration:inbound-channel-adapter id="ica_xml" expression="'zoo'" channel="ica_channel">
+        <integration:poller fixed-rate="1000"/>
+
+    </integration:inbound-channel-adapter>
+</beans>
