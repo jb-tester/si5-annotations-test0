@@ -1,4 +1,4 @@
-package com.mytests.spring.springintegration5.annotattionstest0.components;
+package com.mytests.spring.springintegration5.annotattionstest0.sa_components;
 
 import org.springframework.integration.annotation.MessageEndpoint;
 import org.springframework.integration.annotation.ServiceActivator;
