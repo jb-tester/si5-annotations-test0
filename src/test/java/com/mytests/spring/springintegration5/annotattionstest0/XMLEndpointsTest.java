@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @ContextConfiguration(locations = "classpath*:xml-config.xml")
 public class XMLEndpointsTest {
 
-@Autowired
+    @Autowired
     ApplicationContext ctx;
 
 	@Autowired
