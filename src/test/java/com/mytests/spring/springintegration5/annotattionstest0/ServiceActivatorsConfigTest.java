@@ -25,7 +25,7 @@ public class ServiceActivatorsConfigTest {
 
 	@Autowired
 	@Qualifier("helloService.handler")
-	private MessageHandler eipBeanHandler;
+	private MessageHandler helloHandler;
 
     @Autowired
     @Qualifier("serviceActivatorsConfig.sa2.serviceActivator")
