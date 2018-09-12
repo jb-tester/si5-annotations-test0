@@ -11,6 +11,7 @@ public class RunAdaptersTest {
         testAdaptersFromDiffContexts(AdaptersConfig0.class, "ica0channel");
         testAdaptersFromDiffContexts(AdaptersConfig1.class, "ica1channel");
         testAdaptersFromDiffContexts(AdaptersConfig2.class, "ica2channel");
+        testAdaptersFromDiffContexts(AdaptersConfig3.class, "ica3channel");
 
     }
 
