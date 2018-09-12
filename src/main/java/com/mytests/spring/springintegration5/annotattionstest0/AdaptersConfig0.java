@@ -6,7 +6,6 @@ import org.springframework.integration.annotation.EndpointId;
 import org.springframework.integration.annotation.InboundChannelAdapter;
 import org.springframework.integration.annotation.Poller;
 import org.springframework.integration.channel.DirectChannel;
-import org.springframework.integration.channel.PublishSubscribeChannel;
 import org.springframework.integration.channel.QueueChannel;
 import org.springframework.integration.config.EnableIntegration;
 import org.springframework.integration.scheduling.PollerMetadata;
@@ -31,7 +30,7 @@ public class AdaptersConfig0 {
         return new DirectChannel();
     }
 
-    @Bean
+    @Bean(name = "myPoller0")
     public PollerMetadata myPoller() {
         PollerMetadata pollerMetadata = new PollerMetadata();
         pollerMetadata.setTrigger(new PeriodicTrigger(1000));
@@ -41,7 +40,7 @@ public class AdaptersConfig0 {
 
     @Bean("myadapter.source")
     @EndpointId("myadapter")
-    @InboundChannelAdapter(value = "ica0channel", poller = @Poller(value = "myPoller", errorChannel = "pollerErrorChannel"))
+    @InboundChannelAdapter(value = "ica0channel", poller = @Poller(value = "myPoller0", errorChannel = "pollerErrorChannel"))
     public Supplier<String> pojoSupplier() {
         return () -> {
             return "foo";
