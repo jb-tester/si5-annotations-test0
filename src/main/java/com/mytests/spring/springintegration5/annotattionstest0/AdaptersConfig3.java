@@ -34,8 +34,6 @@ public class AdaptersConfig3 {
         return new QueueChannel();
     }
 
-
-
     @Bean
     public DirectChannel pollerErrorChannel(){
         return new DirectChannel();
@@ -43,8 +41,6 @@ public class AdaptersConfig3 {
 
     @InboundChannelAdapter("ica3channel")
     public String myAdapter3() {
-
             return "bazz";
-
     }
 }

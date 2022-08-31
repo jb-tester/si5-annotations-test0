@@ -1,5 +1,6 @@
 package com.mytests.spring.springintegration5.annotattionstest0;
 
+import com.mytests.spring.springintegration5.annotattionstest0.sa_components.MyService1;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -64,7 +65,7 @@ public class ServiceActivatorsConfig {
     @ServiceActivator( inputChannel = "channel2")
     public MessageHandler sa1(){
 
-        MessageHandler handler = new ServiceActivatingHandler(service1(),"servicemethod");
+        MessageHandler handler = new ServiceActivatingHandler(service1(),"servicemethod1");
         ((ServiceActivatingHandler) handler).setOutputChannel(channel1());
         return handler;
     }

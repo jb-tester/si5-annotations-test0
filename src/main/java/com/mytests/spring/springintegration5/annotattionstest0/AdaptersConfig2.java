@@ -19,15 +19,10 @@ import java.util.function.Supplier;
 @EnableIntegration
 public class AdaptersConfig2 {
 
-
-
     @Bean
     public PollableChannel ica2channel(){
         return new QueueChannel();
     }
-
-
-
     @Bean
     @InboundChannelAdapter(value = "ica2channel", poller = @Poller(fixedRate = "1000"))
     public Supplier<String> myadapter2() {

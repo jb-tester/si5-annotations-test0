@@ -23,7 +23,7 @@ public class ServiceActivatorsConfigTest {
     // @EndpointId test:
 	@Autowired
     @Qualifier("helloService")
-	private PollingConsumer helloService ;
+	private PollingConsumer helloService ;  // autowiring error, n/r qualifier
 
 	@Autowired
 	@Qualifier("helloService.handler")
@@ -32,7 +32,7 @@ public class ServiceActivatorsConfigTest {
 	// @ServiceActivator-annotated @Bean method:
     @Autowired
     @Qualifier("serviceActivatorsConfig.sa2.serviceActivator")
-    private PollingConsumer sa2 ;
+    private PollingConsumer sa2 ; // autowiring error, n/r qualifier
 
     @Autowired
     @Qualifier("sa2")
@@ -45,13 +45,18 @@ public class ServiceActivatorsConfigTest {
 
     @Autowired
     @Qualifier("serviceActivator3.servicemethod3.serviceActivator.handler")
-    private MessageHandler sa3Handler;
+    private MessageHandler sa3Handler; // autowiring error, n/r qualifier
 
 
 
     @Test
     public void name() {
-
+        System.out.println("helloService: "+ctx.getBean("helloService").getClass());
+        System.out.println("helloService.handler: "+ctx.getBean("helloService.handler").getClass());
+        System.out.println("serviceActivatorsConfig.sa2.serviceActivator: "+ctx.getBean("serviceActivatorsConfig.sa2.serviceActivator").getClass());
+        System.out.println("sa2: "+ctx.getBean("sa2").getClass());
+        System.out.println("serviceActivator3.servicemethod3.serviceActivator: "+ctx.getBean("serviceActivator3.servicemethod3.serviceActivator").getClass());
+        System.out.println("serviceActivator3.servicemethod3.serviceActivator.handler: "+ctx.getBean("serviceActivator3.servicemethod3.serviceActivator.handler").getClass());
 
     }
 }

@@ -17,4 +17,7 @@
         <integration:poller fixed-rate="1000"/>
 
     </integration:inbound-channel-adapter>
+
+    <integration:spel-function id="mySpelFunction" class="com.mytests.spring.springintegration5.annotattionstest0.xml.MyFunctions"
+                   method="mySpelFunction(java.lang.String, java.lang.String)"/>
 </beans>

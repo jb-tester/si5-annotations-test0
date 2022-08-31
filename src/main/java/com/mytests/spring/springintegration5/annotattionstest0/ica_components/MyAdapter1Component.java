@@ -8,9 +8,6 @@ import org.springframework.integration.annotation.Poller;
 public class MyAdapter1Component {
     @InboundChannelAdapter(value = "ica1channel", poller = @Poller(fixedRate = "1000"))
     public String myadapter1() {
-
-            return "boo";
-
-
+        return "boo";
     }
 }

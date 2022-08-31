@@ -38,12 +38,15 @@ public class XMLEndpointsTest {
 
     @Autowired
     @Qualifier("ica_xml.source")
-    private MessageSource messageSource;
+    private MessageSource messageSource; // autowiring error
 
 
     @Test
     public void name() {
-        System.out.println(ctx.getBean("sa_xml").getClass());
+        System.out.println("sa_xml: "+ctx.getBean("sa_xml").getClass());
+        System.out.println("sa_xml.handler: "+ctx.getBean("sa_xml.handler").getClass());
+        System.out.println("ica_xml: "+ctx.getBean("ica_xml").getClass());
+        System.out.println("ica_xml.source: "+ctx.getBean("ica_xml.source").getClass());
 
     }
 }

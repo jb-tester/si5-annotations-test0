@@ -1,5 +1,4 @@
 service activator and inbound channel adapter configured as xml elements:
-
 xml-config.xml
 com.mytests.spring.springintegration5.annotattionstest0.XMLEndpointsTest
 

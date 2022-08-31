@@ -12,15 +12,9 @@ import org.springframework.messaging.PollableChannel;
 @ComponentScan("com.mytests.spring.springintegration5.annotattionstest0.ica_components")
 public class AdaptersConfig1 {
 
-
-
     @Bean
     public PollableChannel ica1channel(){
         return new QueueChannel();
     }
-
-
-
-
 
 }
